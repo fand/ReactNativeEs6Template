@@ -3,9 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "npm run babel && npm run package",
+    "package": "node_modules/react-native/packager/packager.sh",
+    "babel": "babel src --watch --out-dir lib &"
   },
   "dependencies": {
     "react-native": "^0.8.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21"
   }
 }
