@@ -6,4 +6,4 @@ import  {
 
 import App from './App';
 
-AppRegistry.registerComponent('AwesomeProject', () => App);
+AppRegistry.registerComponent('MyApp', () => App);
