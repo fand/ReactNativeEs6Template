@@ -26,7 +26,14 @@ var styles = StyleSheet.create({
     flexDirection   : 'row',
     justifyContent  : 'center',
     alignItems      : 'center',
-    backgroundColor : '#F5FCFF',
+    backgroundColor : '#EEF',
+  },
+  containerEven : {
+    flex            : 1,
+    flexDirection   : 'row',
+    justifyContent  : 'center',
+    alignItems      : 'center',
+    backgroundColor : '#FFFFFF',
   },
   thumbnail: {
     width  : 53,
@@ -92,9 +99,9 @@ var AwesomeProject = React.createClass({
       </View>
     );
   },
-  renderMovie: function (movie) {
+  renderMovie: function (movie, _, i) {
     return (
-      <View style={styles.container}>
+      <View style={i % 2 ? styles.container : styles.containerEven}>
         <Image
           source={{uri: movie.posters.thumbnail}}
           style={styles.thumbnail}
