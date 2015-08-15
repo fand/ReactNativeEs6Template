@@ -12,6 +12,7 @@ var {
   StyleSheet,
   Text,
   View,
+  Component
 } = React;
 
 /**
@@ -56,19 +57,22 @@ var styles = StyleSheet.create({
   }
 });
 
-var AwesomeProject = React.createClass({
-  getInitialState : function () {
-    return {
+class AwesomeProject extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) =>  row1 !== row2,
       }),
       loaded: false,
     };
-  },
-  componentDidMount: function () {
+  }
+
+  componentDidMount () {
     this.fetchData();
-  },
-  fetchData: function () {
+  }
+
+  fetchData () {
     fetch(REQUEST_URL)
       .then(response => response.json())
       .then((responseData) => {
@@ -79,8 +83,9 @@ var AwesomeProject = React.createClass({
         });
       })
       .done();
-  },
-  render: function () {
+  }
+
+  render () {
     if (!this.state.loaded) {
       return this.renderLoadingView();
     }
@@ -91,15 +96,17 @@ var AwesomeProject = React.createClass({
         style={styles.listView}
       />
     );
-  },
-  renderLoadingView: function () {
+  }
+
+  renderLoadingView () {
     return (
       <View style={styles.container}>
         <Text>Loading movies...</Text>
       </View>
     );
-  },
-  renderMovie: function (movie, _, i) {
+  }
+
+  renderMovie (movie, _, i) {
     return (
       <View style={i % 2 ? styles.container : styles.containerEven}>
         <Image
@@ -113,6 +120,7 @@ var AwesomeProject = React.createClass({
       </View>
     );
   }
-});
+
+}
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
