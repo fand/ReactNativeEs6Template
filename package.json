@@ -5,12 +5,15 @@
   "scripts": {
     "start": "npm run babel && npm run package",
     "package": "node_modules/react-native/packager/packager.sh",
-    "babel": "babel src --watch --out-dir lib &"
+    "babel": "(npm run kill-babel && npm run start-babel ) || npm run start-babel",
+    "start-babel": "$(npm bin)/pm2 start ./babel.sh --name babel",
+    "kill-babel": "$(npm bin)/pm2 stop babel"
   },
   "dependencies": {
     "react-native": "^0.8.0"
   },
   "devDependencies": {
-    "babel": "^5.8.21"
+    "babel": "^5.8.21",
+    "pm2": "^0.14.7"
   }
 }
