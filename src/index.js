@@ -6,4 +6,4 @@ import  {
 
 import App from './App';
 
-AppRegistry.registerComponent('Yo', () => App);
+AppRegistry.registerComponent('ReactNativeEs6Template', () => App);
