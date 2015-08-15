@@ -6,4 +6,4 @@ import  {
 
 import App from './App';
 
-AppRegistry.registerComponent('MyApp', () => App);
+AppRegistry.registerComponent('Yo', () => App);
